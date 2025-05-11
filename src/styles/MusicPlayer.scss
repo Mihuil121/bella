@@ -1,0 +1,133 @@
+.music-player {
+  position: relative;
+  margin: 2rem auto;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 1rem 2rem;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1000;
+
+  .song-info {
+    text-align: center;
+    margin-bottom: 1rem;
+
+    h3 {
+      color: #fff;
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0.5rem 0 0;
+      font-size: 0.9rem;
+    }
+
+    .song-progress {
+      margin-top: 0.5rem;
+      
+      .current-song {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+
+    button {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+
+      i {
+        font-size: 1.2rem;
+      }
+    }
+
+    .play-button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      i {
+        font-size: 1.5rem;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+    }
+
+    .control-button {
+      opacity: 0.7;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .music-player {
+    padding: 0.8rem 1.5rem;
+    margin: 1rem auto;
+
+    .song-info {
+      h3 {
+        font-size: 1rem;
+      }
+
+      p {
+        font-size: 0.8rem;
+      }
+
+      .song-progress {
+        .current-song {
+          font-size: 0.7rem;
+        }
+      }
+    }
+
+    .controls {
+      gap: 1rem;
+
+      .play-button {
+        width: 40px;
+        height: 40px;
+
+        i {
+          font-size: 1.2rem;
+        }
+      }
+
+      .control-button i {
+        font-size: 1rem;
+      }
+    }
+  }
+} 
