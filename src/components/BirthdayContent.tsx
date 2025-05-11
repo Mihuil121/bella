@@ -57,16 +57,6 @@ const BirthdayContent: React.FC = () => {
     });
   }, []);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3
-      }
-    }
-  };
-
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -146,4 +136,4 @@ const BirthdayContent: React.FC = () => {
   );
 };
 
-export default BirthdayContent; 
+export default BirthdayContent;

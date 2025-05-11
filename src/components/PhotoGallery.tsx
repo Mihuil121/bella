@@ -9,7 +9,7 @@ const PhotoGallery: React.FC = () => {
   const { i18n } = useTranslation();
   const isKorean = i18n.language === 'ko';
   
-  // Create parallax effect for each photo
+  // Параллакс-эффекты для фотографий (теперь используются)
   const y1 = useTransform(scrollY, [0, 1000], [0, 200]);
   const y2 = useTransform(scrollY, [0, 1000], [0, -200]);
   const y3 = useTransform(scrollY, [0, 1000], [0, 150]);
@@ -50,14 +50,25 @@ const PhotoGallery: React.FC = () => {
     }
   ];
 
-  const handleImageClick = (index: number) => {
-    setSelectedImage(index);
-  };
-
   return (
     <div className="photo-gallery">
-     
-      
+      <div className="gallery-grid">
+        {photos.map((photo, index) => (
+          <motion.div
+            key={index}
+            className="gallery-item"
+            style={{ y: index === 0 ? y1 : index === 1 ? y2 : y3 }}
+            onClick={() => setSelectedImage(index)}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+          >
+            <img src={photo.src} alt={photo.caption[isKorean ? 'ko' : 'en']} />
+            <div className="image-caption">
+              <h4>{photo.caption[isKorean ? 'ko' : 'en']}</h4>
+            </div>
+          </motion.div>
+        ))}
+      </div>
 
       <AnimatePresence>
         {selectedImage !== null && (
@@ -91,4 +102,4 @@ const PhotoGallery: React.FC = () => {
   );
 };
 
-export default PhotoGallery; 
+export default PhotoGallery;

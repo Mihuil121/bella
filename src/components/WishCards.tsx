@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import '../styles/WishCards.scss';
 
 const WishCards: React.FC = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation(); // Убрали неиспользуемую переменную t
   const [currentCard, setCurrentCard] = React.useState(0);
 
   const wishes = [
@@ -96,4 +96,4 @@ const WishCards: React.FC = () => {
   );
 };
 
-export default WishCards; 
+export default WishCards;
